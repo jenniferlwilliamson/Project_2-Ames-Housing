@@ -1,7 +1,3 @@
-<div style="background-color:dodgerblue;color:white;padding:20px;font-size:16px;font-family:'Arial'">
-  <h1>Choosing the best features to provide value in a house in Ames, Iowa</h1>
-</div>
-
 ---
 # File Structure
 
@@ -98,16 +94,16 @@ See link [here](http://jse.amstat.org/v19n3/decock/DataDocumentation.txt).
 
 ---
 
-Step 1 - Import the training and test data and perform basic cleaning (review nulls and datatypes).
+### Step 1 - Import the training and test data and perform basic cleaning (review nulls and datatypes).
 
-Step 2 -  Import cleaned training data and perform basic EDA on it. This includes seeing the correlation between each column and the sale price (which initially excludes non-numeric columns).  Identify five features as having the best r2 values with respect to the Sale Price and create a linear regression model.  This involves the following:
+### Step 2 -  Import cleaned training data and perform basic EDA on it. This includes seeing the correlation between each column and the sale price (which initially excludes non-numeric columns).  Identify five features as having the best r2 values with respect to the Sale Price and create a linear regression model.  This involves the following:
 
  * do a train/test split on the training data
  * fit the linear regression model to the train split of the data
  * verify the model is reasonable by doing a cross-val score as well as running the model on the test split of the data.
  * use linear regression model that I fit on the train split of the training data on the separate test data for kaggle upload and export this for **Prediction 1**
  
-Steps 3-5 -  Import cleaned training data, then sort the features into four categories based on the data types found in the data dictioary. These include continuous, nominal, discrete, and ordinal features.
+### Steps 3-5 -  Import cleaned training data, then sort the features into four categories based on the data types found in the data dictioary. These include continuous, nominal, discrete, and ordinal features.
 
  * For categorical features (Step 3):
 
@@ -133,7 +129,7 @@ Steps 3-5 -  Import cleaned training data, then sort the features into four cate
 
     * I also try looking at whether adding a column that combines month and year will provide additional information, but graphing the relationship to Sale Price shows no trend, so I don't add this column to the dataframe.
 
-Step 6 - 
+### Step 6 - 
 
  * I use my cleaned training data, then look at all possible features, (using all continuous and discrete features, importing the updated ordinal features, and then creating dummy columns for all categorical features with dropping the first dummy column for each one.
 
@@ -145,7 +141,7 @@ Step 6 -
 
  * I then fit a ridge model on the train split and run the model on both the training and test split. However, it has similar performance to the lasso model, and a lot more features, so I don't use it to create any predictions with the test data.
 
-Step 7 - 
+### Step 7 - 
 
  * I use my cleaned training data, then look at all the continuous and dummy features that had r2 values over .2, import the updated ordinal features and select features that had r2 values over .2, and select the discrete features that had r2 values over .2.
 
@@ -159,7 +155,7 @@ Step 7 -
 
     * Finally, since the linear regression is easier to interpret and doesn't have many more features than the lasso model, I also perform the scaling and fitting of the linear regression model to the entire set of training data, and use this updated linear regression model on the test data to create **prediction 5**.
 
-Step 6 - 
+### Step 8 - 
 
  * I use my cleaned training data as well as the lasso model on all features from Step 6 and the linear regression model on manually selected features from Step 7 to compare the results of the lasso model and linear regression model.
 
@@ -175,26 +171,26 @@ Step 6 -
 ### Top 5 features
 * Doing basic analysis, the features with the top 5 correlation coefficients to Sale Price have ok correlations.
 
-![](https://git.generalassemb.ly/jenni5/project_2/blob/master/visuals/Top%205%20features%20-%20basic.png)
+![](https://github.com/jenniferlwilliamson/Project_2-Ames-Housingblob/master/visuals/Top%205%20features%20-%20basic.png)
 
 ### Manually selected features
 * Manually selecting features results in a lot of features
 
-![](https://git.generalassemb.ly/jenni5/project_2/blob/master/visuals/Manual%20Features.png)
+![](https://github.com/jenniferlwilliamson/Project_2-Ames-Housing/blob/master/visuals/Manual%20Features.png)
 
 
 ### Comparing the lasso and manually selected features
 * Comparing the two techniques results in a lot of overlap of features
 
-![](https://git.generalassemb.ly/jenni5/project_2/blob/master/visuals/Manual%20and%20Lasso%20Features_all.png)
+![](https://github.com/jenniferlwilliamson/Project_2-Ames-Housing/blob/master/visuals/Manual%20and%20Lasso%20Features_all.png)
 
 * Selecting just the features that are selected by both narrows this down
 
-![](https://git.generalassemb.ly/jenni5/project_2/blob/master/visuals/Manual%20and%20lasso%20features%20combined.png)
+![](https://github.com/jenniferlwilliamson/Project_2-Ames-Housing/blob/master/visuals/Manual%20and%20lasso%20features%20combined.png)
 
 * Selecting just the features that have a difference in rank between the two of them reduces this further
 
-![](https://git.generalassemb.ly/jenni5/project_2/blob/master/visuals/manual%20and%20lasso%20features%20reduced%20number.png)
+![](https://github.com/jenniferlwilliamson/Project_2-Ames-Housing/blob/master/visuals/manual%20and%20lasso%20features%20reduced%20number.png)
 
 
 ---
@@ -214,15 +210,15 @@ Step 6 -
    * Lot Area
    * Masonry Veneer Area
 
-![](https://git.generalassemb.ly/jenni5/project_2/blob/master/visuals/Top%20ten.png)
+![](https://github.com/jenniferlwilliamson/Project_2-Ames-Housing/blob/master/visuals/Top%20ten.png)
 
 
 ### Recommendation: Focus on Quality
 * Quality is really important! Overall quality, exterior quality, and kitchen quality
 
-![](https://git.generalassemb.ly/jenni5/project_2/blob/master/visuals/Overall%20Quality.png)
+![](https://github.com/jenniferlwilliamson/Project_2-Ames-Housing/blob/master/visuals/Overall%20Quality.png)
 
-![](https://git.generalassemb.ly/jenni5/project_2/blob/master/visuals/Exterior%20Quality.png)
+![](https://github.com/jenniferlwilliamson/Project_2-Ames-Housing/blob/master/visuals/Exterior%20Quality.png)
 
-![](https://git.generalassemb.ly/jenni5/project_2/blob/master/visuals/Kitchen%20Quality.png)
+![](https://github.com/jenniferlwilliamson/Project_2-Ames-Housing/blob/master/visuals/Kitchen%20Quality.png)
 
